@@ -1,8 +1,6 @@
 require "keybow"
 require "snippets/mac_snippets"
 
-require "keybow"
-
 -- Keybow MINI --
 
 function setup()
@@ -18,9 +16,9 @@ end
 function handle_minikey_00(pressed)
 -- keybow.set_key("1", pressed) --
 -- red --
-        mac_snippets.spotlight("chrome")
     if pressed then
         keybow.set_pixel(0, 255, 0, 0)
+        mac_snippets.spotlight("chrome")
     else
         keybow.set_pixel(0, 0, 0, 0)
     end
@@ -29,12 +27,12 @@ end
 function handle_minikey_01(pressed)
 -- keybow.set_key("1", pressed)
 -- green
+    if pressed then
+        keybow.set_pixel(1, 0, 255, 0)
         mac_snippets.spotlight("teams.app")
         keybow.set_modifier(keybow.LEFT_META, keybow.KEY_DOWN, keybow.LEFT_SHIFT)
         keybow.tap_key("M", pressed)
         keybow.set_modifier(keybow.LEFT_META, keybow.KEY_UP)
-    if pressed then
-        keybow.set_pixel(1, 0, 255, 0)
     else
         keybow.set_pixel(1, 0, 0, 0)
     end
@@ -44,10 +42,11 @@ function handle_minikey_02(pressed)
 -- keybow.set_key("2", pressed)
 -- blue
 -- spotify mute
-        mac_snippets.spotlight("spotify.app")
-        keybow.tap_space()
+
     if pressed then
         keybow.set_pixel(2, 0, 0, 255)
+        mac_snippets.spotlight("spotify.app")
+        keybow.tap_space()
     else
         keybow.set_pixel(2, 0, 0, 0)
     end
